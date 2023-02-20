@@ -17,8 +17,15 @@ class Runway {
 
   remove(plane) {
     const index = Runway.planes.indexOf(plane);
-    if (index > -1) {
-      Runway.planes.splice(index, 1);
+
+    if (Runway.planes.length > 0) {
+      if (index > -1) {
+        Runway.planes.splice(index, 1);
+      } else {
+        return 'No such plane on the runway';
+      }
+    } else {
+      throw new Error('No planes on the runway to remove!');
     }
   }
 }
